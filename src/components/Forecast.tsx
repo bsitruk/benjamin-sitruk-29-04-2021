@@ -9,6 +9,10 @@ import ForecastCard from "./WeatherCard/ForecastCard";
 export const Forecast = () => {
   const city = useAppSelector(selectCity);
   const { forecast, isLoading } = useForecast(city.key);
+  console.log(
+    "🚀 ~ file: Forecast.tsx ~ line 12 ~ Forecast ~ isLoading",
+    isLoading
+  );
   const bgColor = useColorModeValue("gray.100", "gray.800");
 
   return (
@@ -27,7 +31,7 @@ export const Forecast = () => {
         px={6}
       >
         {isLoading ? (
-          <Spinner />
+          <Spinner color="var(--blackwhite)" size="lg" />
         ) : (
           forecast.map((item, index) => (
             <Box flexShrink={0} flexGrow={1} key={index} w="0" minW={160}>

@@ -9,13 +9,9 @@ import { setCity } from "../features/selectedCitySlice";
 
 export const CityInput = () => {
   const [value, setValue] = useDebounce("", 500);
-  console.log(
-    "🚀 ~ file: CityInput.tsx ~ line 12 ~ CityInput ~ value",
-    !!value
-  );
   const dispatch = useAppDispatch();
 
-  const { data = [] } = useQuery(
+  const { data = [], isLoading } = useQuery(
     ["autocomplete", { text: value }],
     cityAutoComplete,
     {
@@ -42,10 +38,6 @@ export const CityInput = () => {
       setValue(inputValue || "");
     },
     onSelectedItemChange: ({ selectedItem }) => {
-      console.log(
-        "🚀 ~ file: CityInput.tsx ~ line 35 ~ selectedItem",
-        selectedItem
-      );
       if (selectedItem) dispatch(setCity(selectedItem));
     },
   });
@@ -53,11 +45,16 @@ export const CityInput = () => {
   let itemRenderer;
   if (isOpen) {
     if (cities.length === 0) {
-      itemRenderer = (
-        <Box p={4} textAlign="center">
-          <Spinner />
-        </Box>
-      );
+      itemRenderer =
+        !isLoading && !!value ? (
+          <Box px={2} py={1}>
+            No results...
+          </Box>
+        ) : (
+          <Box p={4} textAlign="center">
+            <Spinner color="black" />
+          </Box>
+        );
     } else {
       itemRenderer = cities.map((item, index) => (
         <ListItem
@@ -65,6 +62,7 @@ export const CityInput = () => {
           px={2}
           py={1}
           bg={highlightedIndex === index ? "gray.100" : "inherit"}
+          color="black"
           {...getItemProps({ item, index })}
         >
           {item.name}
@@ -76,6 +74,8 @@ export const CityInput = () => {
   return (
     <Box size="md" w={[300, 400, 560]} pos="relative" {...getComboboxProps()}>
       <Input
+        color="black"
+        _placeholder={{ color: "gray.400" }}
         placeholder="Search for a city"
         background="white"
         mb={isOpen && 2}
