@@ -7,8 +7,8 @@ import {
   DailyForecast,
 } from "./types";
 
-const HOST = "https://e287d1a2-73ed-4bf5-a4b3-ee68cc81d428.mock.pstmn.io";
-// const HOST = "http://dataservice.accuweather.com";
+// const HOST = "https://e287d1a2-73ed-4bf5-a4b3-ee68cc81d428.mock.pstmn.io";
+const HOST = "http://dataservice.accuweather.com";
 const KEY = "GcRVOicPJ6FWsFKI8WvtMSjCQRbeFsDO";
 
 function buildUrl(path: string, params: any = {}) {
