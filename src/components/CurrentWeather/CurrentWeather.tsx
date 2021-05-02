@@ -37,7 +37,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({ city }) => {
             isFavorite={!!favorites.find((f) => f.key === city.key)}
           />
         </Box>
-        <SoundPlayer conditions={weather.conditions} cityKey={city.key} />
+        <SoundPlayer conditions={weather.conditions} key={city.key} />
       </Box>
     );
   }

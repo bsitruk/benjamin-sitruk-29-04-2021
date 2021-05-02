@@ -3,11 +3,8 @@ import useSound from "use-sound";
 import { Conditions } from "../../types/weather";
 import natureSfx from "../../assets/sounds/nature.mp3";
 
-export type SoundPlayerProps = { conditions: Conditions; cityKey: string };
-export const SoundPlayer: React.FC<SoundPlayerProps> = ({
-  conditions,
-  cityKey,
-}) => {
+export type SoundPlayerProps = { conditions: Conditions };
+export const SoundPlayer: React.FC<SoundPlayerProps> = ({ conditions }) => {
   const [play, { stop }] = useSound(natureSfx, {
     sprite: {
       [Conditions.CLEAR]: [0, 5033.764172335601],
@@ -21,7 +18,7 @@ export const SoundPlayer: React.FC<SoundPlayerProps> = ({
   useEffect(() => {
     play({ id: conditions });
     return () => stop();
-  }, [conditions, play, stop, cityKey]);
+  }, [conditions, play, stop]);
 
   return null;
 };
