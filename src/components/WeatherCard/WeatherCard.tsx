@@ -1,12 +1,12 @@
 import { VStack } from "@chakra-ui/layout";
 import { Box, Heading, Image } from "@chakra-ui/react";
 import React from "react";
-import Sun from "../../img/sun.png";
-import Clouds from "../../img/clouds.png";
-import Rain from "../../img/rain.png";
-import Snow from "../../img/snow.png";
-import Night from "../../img/night.png";
-import Unknown from "../../img/unknown.png";
+import Sun from "../../assets/img/sun.png";
+import Clouds from "../../assets/img/clouds.png";
+import Rain from "../../assets/img/rain.png";
+import Snow from "../../assets/img/snow.png";
+import Night from "../../assets/img/night.png";
+import Unknown from "../../assets/img/unknown.png";
 import { Conditions } from "../../types/weather";
 import { DailyForecast } from "../../api/accuWeather/types";
 import { useUnit, useUnitValue } from "../../features/unit/hooks";

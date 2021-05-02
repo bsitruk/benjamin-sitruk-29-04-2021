@@ -6,6 +6,7 @@ import { useFavorites } from "../../api/favorites/hooks";
 import FavoriteButton from "../FavoriteButton";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
+import SoundPlayer from "./SoundPlayer";
 
 type CurrentWeatherProps = {
   city: City;
@@ -36,6 +37,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({ city }) => {
             isFavorite={!!favorites.find((f) => f.key === city.key)}
           />
         </Box>
+        <SoundPlayer conditions={weather.conditions} cityKey={city.key} />
       </Box>
     );
   }
