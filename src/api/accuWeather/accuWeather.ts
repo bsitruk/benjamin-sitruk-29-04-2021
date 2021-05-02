@@ -7,8 +7,12 @@ import {
   DailyForecast,
 } from "./types";
 
-// const HOST = "https://e287d1a2-73ed-4bf5-a4b3-ee68cc81d428.mock.pstmn.io";
-const HOST = "http://dataservice.accuweather.com";
+const params = new URLSearchParams(window.location.search);
+const HOST = params.has("mock")
+  ? "https://e287d1a2-73ed-4bf5-a4b3-ee68cc81d428.mock.pstmn.io"
+  : "http://dataservice.accuweather.com";
+if (params.has("mock")) console.info("Using a Mock API");
+
 const KEY = "GcRVOicPJ6FWsFKI8WvtMSjCQRbeFsDO";
 
 function buildUrl(path: string, params: any = {}) {
