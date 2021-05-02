@@ -29,7 +29,13 @@ export const Forecast = () => {
           <Spinner color="var(--blackwhite)" size="lg" />
         ) : (
           forecast.map((item, index) => (
-            <Box flexShrink={0} flexGrow={1} key={index} w="0" minW={160}>
+            <Box
+              flexShrink={0}
+              flexGrow={1}
+              key={index}
+              w="0"
+              minW="var(--card-minw)"
+            >
               <ForecastCard {...item} />
             </Box>
           ))

@@ -47,7 +47,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({ city }) => {
       bgImage="url('https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')"
       bgRepeat="no-repeat"
       bgSize="cover"
-      bgPos="0px -100px"
+      bgPos="0% 5%"
       minH={400}
       pos="relative"
       fontFamily="Montserrat"

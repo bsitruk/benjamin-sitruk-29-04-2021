@@ -50,11 +50,13 @@ export const WeatherCard: React.FC<WeatherCardProps> = ({
       bgGradient={gradient}
       color="white"
       borderRadius="lg"
-      py={4}
-      px={8}
+      p={4}
       spacing={4}
+      minW="var(--card-minw)"
     >
-      <Box textAlign="center">{children}</Box>
+      <Box textAlign="center" w="full">
+        {children}
+      </Box>
       <Image src={ICON[conditions]} alt="Weather Icon" boxSize="14" />
       <Box textAlign="center">
         <Heading

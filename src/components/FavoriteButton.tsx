@@ -21,6 +21,7 @@ export const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     if (isFavorite) {
       await removeFavoriteMutation.mutateAsync(city.key);
     } else {
+      console.log(city);
       await addFavoriteMutation.mutateAsync(city);
     }
     queryClient.invalidateQueries("favorites");

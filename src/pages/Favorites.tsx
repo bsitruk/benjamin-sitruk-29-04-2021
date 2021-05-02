@@ -11,7 +11,7 @@ import { setCity } from "../features/selectedCitySlice";
 type FavoritesProps = RouteComponentProps;
 
 export const Favorites: React.FC<FavoritesProps> = () => {
-  const { favorites } = useFavorites();
+  const { favorites, isLoading } = useFavorites();
   const weathers = useMultipleWeather(favorites.map((f) => f.key));
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -21,12 +21,16 @@ export const Favorites: React.FC<FavoritesProps> = () => {
     navigate("/");
   }
 
-  return (
-    <>
-      <Text as="h1" layerStyle="title" textStyle="title">
-        Favorites
+  let ContentNode: React.ReactNode;
+  if (!isLoading && favorites.length === 0) {
+    ContentNode = (
+      <Text fontFamily="mont">
+        You can add favorite cities in the Home page !
       </Text>
-      {weathers.length === 0 ? (
+    );
+  } else {
+    ContentNode =
+      weathers.length === 0 ? (
         <Spinner />
       ) : (
         <SimpleGrid columns={[2, null, 5]} spacing={10}>
@@ -44,7 +48,15 @@ export const Favorites: React.FC<FavoritesProps> = () => {
             </Box>
           ))}
         </SimpleGrid>
-      )}
+      );
+  }
+
+  return (
+    <>
+      <Text as="h1" layerStyle="title" textStyle="title">
+        Favorites
+      </Text>
+      {ContentNode}
     </>
   );
 };

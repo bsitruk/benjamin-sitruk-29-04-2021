@@ -19,7 +19,14 @@ export const DailyCard: React.FC<DailyCardProps> = ({
 }) => {
   return (
     <WeatherCard conditions={conditions} temperature={temperature}>
-      <Heading as="h1" fontSize="lg" fontFamily="mont">
+      <Heading
+        as="h1"
+        fontSize="lg"
+        fontFamily="mont"
+        whiteSpace="nowrap"
+        textOverflow="ellipsis"
+        overflow="hidden"
+      >
         {city}
       </Heading>
       <Heading as="h3" size="sm" fontFamily="mont" fontWeight="400" mt={1}>

@@ -5,6 +5,7 @@ const styles = {
   global: (props: any) => ({
     ":root": {
       "--app-title-color": "#718096",
+      "--card-minw": "160px",
       "--blackwhite": mode("black", "white")(props),
       "--whiteblack": mode("white", "black")(props),
       "--bg-color": mode(

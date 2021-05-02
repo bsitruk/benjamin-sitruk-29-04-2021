@@ -59,6 +59,7 @@ export const CityInput = () => {
       itemRenderer = cities.map((item, index) => (
         <ListItem
           key={item.key}
+          cursor="pointer"
           px={2}
           py={1}
           bg={highlightedIndex === index ? "gray.100" : "inherit"}
