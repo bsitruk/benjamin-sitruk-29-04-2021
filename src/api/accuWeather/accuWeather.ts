@@ -60,6 +60,7 @@ export async function getCurrentWeather(key: string) {
   const resp = await (await fetch(url.toString())).json();
 
   const weather: CurrentWeather = {
+    date: new Date(resp[0].LocalObservationDateTime),
     temperature: [
       resp[0].Temperature.Imperial.Value,
       Math.round(resp[0].Temperature.Metric.Value),

@@ -7,9 +7,13 @@ const styles = {
       "--app-title-color": "#718096",
       "--blackwhite": mode("black", "white")(props),
       "--whiteblack": mode("white", "black")(props),
+      "--bg-color": mode(
+        "var(--chakra-colors-gray-100)",
+        "var(--chakra-colors-gray-800)"
+      )(props),
     },
     body: {
-      bg: mode("gray.100", "gray.800")(props),
+      bg: "var(--bg-color)",
     },
   }),
 };

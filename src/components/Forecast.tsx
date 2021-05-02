@@ -1,19 +1,14 @@
-import { Box, HStack, Spinner, useColorModeValue } from "@chakra-ui/react";
+import { Box, HStack, Spinner } from "@chakra-ui/react";
 import React from "react";
 import { useForecast } from "../api/accuWeather/hooks";
 import { useAppSelector } from "../app/hooks";
 import { selectCity } from "../features/selectedCitySlice";
-import CurrentWeather from "./CurrentWeather";
+import CurrentWeather from "./CurrentWeather/CurrentWeather";
 import ForecastCard from "./WeatherCard/ForecastCard";
 
 export const Forecast = () => {
   const city = useAppSelector(selectCity);
   const { forecast, isLoading } = useForecast(city.key);
-  console.log(
-    "🚀 ~ file: Forecast.tsx ~ line 12 ~ Forecast ~ isLoading",
-    isLoading
-  );
-  const bgColor = useColorModeValue("gray.100", "gray.800");
 
   return (
     <Box boxShadow="2xl" rounded="sm" layerStyle="base" color="white">
@@ -25,7 +20,7 @@ export const Forecast = () => {
         overflowX="auto"
         overflowY="hidden"
         spacing={8}
-        borderTopColor={bgColor}
+        borderTopColor="var(--bg-color)"
         borderTopWidth={10}
         py={4}
         px={6}

@@ -62,7 +62,7 @@ export const CityInput = () => {
           px={2}
           py={1}
           bg={highlightedIndex === index ? "gray.100" : "inherit"}
-          color="black"
+          color="gray.700"
           {...getItemProps({ item, index })}
         >
           {item.name}
@@ -74,7 +74,7 @@ export const CityInput = () => {
   return (
     <Box size="md" w={[300, 400, 560]} pos="relative" {...getComboboxProps()}>
       <Input
-        color="black"
+        color="gray.700"
         _placeholder={{ color: "gray.400" }}
         placeholder="Search for a city"
         background="white"

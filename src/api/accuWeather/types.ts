@@ -17,6 +17,7 @@ export type DailyForecast = {
 };
 
 export type CurrentWeather = {
+  date: Date;
   temperature: [number, number]; // F, C
   conditions: Conditions;
 };
