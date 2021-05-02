@@ -10,10 +10,10 @@ import {
 const params = new URLSearchParams(window.location.search);
 const HOST = params.has("mock")
   ? "https://e287d1a2-73ed-4bf5-a4b3-ee68cc81d428.mock.pstmn.io"
-  : "http://dataservice.accuweather.com";
+  : "https://dataservice.accuweather.com";
 if (params.has("mock")) console.info("Using a Mock API");
 
-const KEY = "GcRVOicPJ6FWsFKI8WvtMSjCQRbeFsDO";
+const KEY = "C0Cc5brLGJ1vGYT8GNaHwPoqEh9lCBG3";
 
 function buildUrl(path: string, params: any = {}) {
   const url = new URL(`${HOST}${path}`);
@@ -46,7 +46,7 @@ export async function getForecast(key: string) {
   const resp = await (await fetch(url.toString())).json();
 
   const forecast: DailyForecast[] = resp.DailyForecasts.map((e: any) => ({
-    day: toDays[new Date(e.Date).getDay()],
+    day: toDays[new Date(e.Date.slice(0, -6)).getDay()],
     conditions: toConditions(e.Day.Icon) || Conditions.UNKNOWN,
     temperature: [
       e.Temperature.Maximum.Value,
@@ -64,7 +64,7 @@ export async function getCurrentWeather(key: string) {
   const resp = await (await fetch(url.toString())).json();
 
   const weather: CurrentWeather = {
-    date: new Date(resp[0].LocalObservationDateTime),
+    date: new Date(resp[0].LocalObservationDateTime.slice(0, -6)),
     temperature: [
       resp[0].Temperature.Imperial.Value,
       Math.round(resp[0].Temperature.Metric.Value),
