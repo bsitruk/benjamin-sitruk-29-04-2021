@@ -7,6 +7,7 @@ import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/900.css";
 import * as React from "react";
 import { Router } from "@reach/router";
+import Headroom from "react-headroom";
 import NavBar from "../components/NavBar/NavBar";
 import Home from "../pages/Home";
 import theme from "../theme/theme";
@@ -14,7 +15,9 @@ import Favorites from "../pages/Favorites";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <NavBar />
+    <Headroom>
+      <NavBar />
+    </Headroom>
     <Container mt={8} maxW="container.xl">
       <Router>
         <Home path="/" />
