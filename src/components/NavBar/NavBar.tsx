@@ -1,6 +1,5 @@
-import { Flex, Heading, HStack, Link } from "@chakra-ui/react";
+import { chakra, Flex, Heading, HStack, Link } from "@chakra-ui/react";
 import React from "react";
-import styled from "@emotion/styled";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 import Headroom from "react-headroom";
 import UnitSwitcher from "../UnitSwitcher";
@@ -8,17 +7,11 @@ import NavLinks from "./NavLinks";
 
 export type NavBarProps = {};
 
-const Wrapper = styled(Headroom)`
-  & {
-    .headroom {
-      z-index: 10 !important;
-    }
-  }
-`;
+const Wrapper = chakra(Headroom);
 
 export const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <Wrapper>
+    <Wrapper zIndex={10} position="relative">
       <Flex
         py={4}
         px={8}
