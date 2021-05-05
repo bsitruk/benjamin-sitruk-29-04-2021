@@ -6,6 +6,6 @@ declare module "*.mp3" {
 }
 
 declare module "react-headroom" {
-  const Headroom: React.ComponentClass;
+  const Headroom: React.ComponentClass<{ wrapperStyle?: any }>;
   export default Headroom;
 }
